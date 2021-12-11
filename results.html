@@ -17,6 +17,16 @@
             <h5 id="disclaimer"></h5>
             <div id="address1"></div>
             <div id="address2"></div>
+            <form method="POST" action="index.html" id="code-form">
+                <fieldset>
+                    <legend>Winners Must Create A 6-Character Code</legend>
+                    <div>
+                        <label for="passcode">Your Secret Code<span class="required-field">*</span></label>
+                        <input type="password" pattern="[0-9a-zA-Z]{6}" title="6-Character Code" id="passcode" name="passcode" required>
+                    </div>
+                </fieldset>
+                <input type="submit" value="Submit Your Code">
+            </form>
         </div>
     </main>
     <script type="text/javascript">
@@ -60,11 +70,13 @@
             document.getElementById('sub-message').textContent = `PACK YOUR BAGS, YOU'RE GOING TO ${choice.toUpperCase()}!`
             document.getElementById('status-message').style.color = color || 'crimson'
             document.getElementById('small-print').textContent = `Extras (${extras.join(', ')}) must be requested upon arrival at your destination`
-        }
+            document.getElementById('code-form').style.display="block"
+         }
         else {
             document.getElementById('status-message').textContent = `Sorry, ${name}, You Didn't Win This Time!`
             document.getElementById('sub-message').textContent = `Maybe you'll get to ${choice} next time!`
             document.getElementById('small-print').textContent = 'Better luck next time!'
+            document.getElementById('code-form').style.display="none"
         }
     </script>
 </body>
